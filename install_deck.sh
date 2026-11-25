@@ -68,6 +68,17 @@ mkdir -p "$STEAM_TEMPLATE_DIR"
 if [ -f "$PATCH_DIR/controller_neptune_heavygear2.vdf" ]; then
     cp -f "$PATCH_DIR/controller_neptune_heavygear2.vdf" "$STEAM_TEMPLATE_DIR/controller_neptune_heavygear2.vdf"
     echo "    Controller profile installed to Steam templates."
+
+    # Automatically set as active layout for any detected Steam user profile
+    for user_cfg in "$HOME/.local/share/Steam/steamapps/common/Steam Controller Configs"/*/config; do
+        if [ -d "$user_cfg" ]; then
+            for title in "Heavy Gear 2" "heavy gear 2" "Heavy Gear II" "heavy gear ii"; do
+                mkdir -p "$user_cfg/$title"
+                cp -f "$PATCH_DIR/controller_neptune_heavygear2.vdf" "$user_cfg/$title/controller_neptune.vdf"
+            done
+            echo "    Automatically set as active controller profile for Steam."
+        fi
+    done
 fi
 
 # Link to SD card if present

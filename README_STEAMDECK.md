@@ -32,52 +32,47 @@ Extract or install the game files to your Steam Deck directory (e.g. `/home/deck
 
 ---
 
-### 2. Apply Community Fix Package
+### 2. One-Command 100% Automated Setup (Recommended)
 
-#### Automated Method (Recommended):
-`install_deck.sh` works with **both an ISO file or an already extracted folder**:
+`install_deck.sh` completely automates the entire installation, patching, and Steam library registration:
 
-- **From an ISO / Archive directly:**
+- **Option A: Install directly from an ISO image**
   ```bash
+  git clone https://github.com/khoanguye/heavy-gear-2-steamdeck.git
+  cd heavy-gear-2-steamdeck
   chmod +x install_deck.sh
   ./install_deck.sh ~/Downloads/HeavyGear2.iso
   ```
-  *(Uses SteamOS built-in `7z`/`bsdtar` to automatically extract the ISO into `/home/deck/Games/Heavy Gear 2/` and apply all patches).*
 
-- **From an already extracted directory:**
+- **Option B: Install from an existing/extracted game folder**
   ```bash
-  chmod +x install_deck.sh
   ./install_deck.sh "/home/deck/Games/Heavy Gear 2"
   ```
-This automatically extracts the game (if an ISO is provided), copies patched binaries, audio DLLs, input definitions, configuration files, and installs the Steam Deck controller template to Steam's templates directory.
 
-#### Manual Method:
-Copy the files from the `patches/` folder into your `/home/deck/Games/Heavy Gear 2/` directory:
-- `Heavy Gear 2.exe` (CD check bypass)
-- `shell.dll` (Engine & CD bypass)
-- `hg2sim.dll` (DirectInput scancode fix for WASD movement)
-- `Dxver.dll` (DirectX 6.1 bypass)
-- `earias.dll`, `earpds.dll`, `config.ear`, `earmusf.exe` (Audio stack)
-- `bindings.def` and `Shell/bindings/Defaults.dft` (Cleaned Proton keybindings)
-- `HG2.cfg` (Default configuration)
+#### What `install_deck.sh` does automatically:
+1. **Extracts ISO / Archive**: Uses built-in `7z`/`bsdtar` to unpack the game files.
+2. **Deploys Engine Patches**: Installs `hg2sim.dll` (WASD fix), `Heavy Gear 2.exe` & `shell.dll` (CD bypass), and audio DLLs.
+3. **Registers in Steam Library**: Automatically writes `Heavy Gear II` into Steam's `shortcuts.vdf` database with icon.
+4. **Locks Proton 9 Compatibility**: Automatically writes Steam's compatibility tool mapping in `config.vdf`.
+5. **Configures Launch Options**: Automatically sets `PROTON_USE_WINED3D=1 %command%`.
+6. **Applies Controller Profile**: Installs and activates the dedicated Twin-Stick Neptune layout in Steam.
 
-And copy `patches/controller_neptune_heavygear2.vdf` to:
-```bash
-/home/deck/.local/share/Steam/controller_base/templates/controller_neptune_heavygear2.vdf
-```
+*After running the script, simply switch back to Steam Game Mode (or restart Steam) and click Play!*
 
 ---
 
-### 3. Steam Configuration (Game Mode)
-1. In Steam Desktop mode (or via Steam client), add `Heavy Gear 2.exe` as a **Non-Steam Game**.
-2. In Steam Game Properties -> **Compatibility**:
-   - Check **"Force the use of a specific Steam Play compatibility tool"**.
-   - Select **Proton 9.0**.
-3. In Steam Game Properties -> **Launch Options**:
+### 3. Manual Installation (Optional / Alternative)
+If you prefer configuring Steam manually:
+1. Copy all files from `patches/` into your `/home/deck/Games/Heavy Gear 2/` directory.
+2. Copy `patches/controller_neptune_heavygear2.vdf` to:
    ```bash
-   PROTON_USE_WINED3D=1 %command%
+   /home/deck/.local/share/Steam/controller_base/templates/controller_neptune_heavygear2.vdf
    ```
-4. Return to Game Mode -> Heavy Gear 2 -> Controller Settings -> Templates -> Select **"Heavy Gear II Steam Deck Layout"**.
+3. In Steam Desktop mode, click **Games -> Add a Non-Steam Game** -> Select `Heavy Gear 2.exe`.
+4. Right-click Heavy Gear 2 in Steam -> **Properties**:
+   - **Compatibility**: Check "Force the use of a specific compatibility tool" -> Select **Proton 9.0**.
+   - **Launch Options**: Enter `PROTON_USE_WINED3D=1 %command%`.
+5. In Game Mode -> Controller Settings -> Templates -> Select **"Heavy Gear II Steam Deck Layout"**.
 
 ---
 

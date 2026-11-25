@@ -35,12 +35,21 @@ Extract or install the game files to your Steam Deck directory (e.g. `/home/deck
 ### 2. Apply Community Fix Package
 
 #### Automated Method (Recommended):
-Run the automated installation script from the root of this repository on your Steam Deck:
-```bash
-chmod +x install_deck.sh
-./install_deck.sh "/home/deck/Games/Heavy Gear 2"
-```
-This automatically deploys all patched binaries, audio DLLs, input definitions, configuration files, and installs the Steam Deck controller template to Steam's templates directory.
+`install_deck.sh` works with **both an ISO file or an already extracted folder**:
+
+- **From an ISO / Archive directly:**
+  ```bash
+  chmod +x install_deck.sh
+  ./install_deck.sh ~/Downloads/HeavyGear2.iso
+  ```
+  *(Uses SteamOS built-in `7z`/`bsdtar` to automatically extract the ISO into `/home/deck/Games/Heavy Gear 2/` and apply all patches).*
+
+- **From an already extracted directory:**
+  ```bash
+  chmod +x install_deck.sh
+  ./install_deck.sh "/home/deck/Games/Heavy Gear 2"
+  ```
+This automatically extracts the game (if an ISO is provided), copies patched binaries, audio DLLs, input definitions, configuration files, and installs the Steam Deck controller template to Steam's templates directory.
 
 #### Manual Method:
 Copy the files from the `patches/` folder into your `/home/deck/Games/Heavy Gear 2/` directory:

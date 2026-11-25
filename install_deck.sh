@@ -4,17 +4,42 @@
 # ==============================================================================
 set -euo pipefail
 
-GAME_DIR="${1:-$HOME/Games/Heavy Gear 2}"
+SOURCE_INPUT="${1:-}"
+GAME_DIR=""
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PATCH_DIR="$SCRIPT_DIR/patches"
 STEAM_TEMPLATE_DIR="$HOME/.local/share/Steam/controller_base/templates"
 
 echo "=== Heavy Gear II Steam Deck Setup ==="
-echo "Target Game Directory: $GAME_DIR"
 
-if [ ! -d "$GAME_DIR" ]; then
-    echo "Creating directory: $GAME_DIR"
+# Check if input is an ISO or archive file
+if [ -n "$SOURCE_INPUT" ] && [ -f "$SOURCE_INPUT" ]; then
+    ARCHIVE_FILE="$SOURCE_INPUT"
+    GAME_DIR="${2:-$HOME/Games/Heavy Gear 2}"
+    echo "--> Source archive / ISO detected: $ARCHIVE_FILE"
+    echo "--> Target Game Directory: $GAME_DIR"
     mkdir -p "$GAME_DIR"
+
+    echo "--> Extracting ISO / archive..."
+    if command -v 7z >/dev/null 2>&1; then
+        7z x "$ARCHIVE_FILE" -o"$GAME_DIR" -y
+    elif command -v bsdtar >/dev/null 2>&1; then
+        bsdtar -xf "$ARCHIVE_FILE" -C "$GAME_DIR"
+    else
+        echo "Error: Neither '7z' nor 'bsdtar' found to extract ISO."
+        exit 1
+    fi
+elif [ -n "$SOURCE_INPUT" ] && [ -d "$SOURCE_INPUT" ]; then
+    GAME_DIR="$SOURCE_INPUT"
+    echo "--> Using existing game directory: $GAME_DIR"
+else
+    # Default path
+    GAME_DIR="$HOME/Games/Heavy Gear 2"
+    echo "--> Target Game Directory: $GAME_DIR"
+    if [ ! -d "$GAME_DIR" ]; then
+        echo "Creating directory: $GAME_DIR"
+        mkdir -p "$GAME_DIR"
+    fi
 fi
 
 if [ ! -d "$PATCH_DIR" ]; then

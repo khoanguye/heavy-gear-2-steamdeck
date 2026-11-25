@@ -110,3 +110,11 @@ Because Heavy Gear II's 2D menus render at 640x480:
 | **Back Grip R5** | Tactical Map | `Tab` |
 | **View Button** | Mission Objectives | `O` |
 | **Menu Button** | In-Game Menu / Options | `Escape` |
+
+---
+
+## Contributors & Credits
+
+- **[Khoa Nguyen](https://github.com/khoanguye)** — Steam Deck testing, hardware verification, and community distribution.
+- **[Google Gemini](https://deepmind.google/technologies/gemini/)** — Reverse-engineering binary patches (`hg2sim.dll`, `shell.dll`, `Heavy Gear 2.exe`), Aureal/Miles audio integration, DirectInput extended-scancode resolution, and automated Steam installer.
+

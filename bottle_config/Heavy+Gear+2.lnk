@@ -1,0 +1,3 @@
+#!/bin/sh
+
+exec "/Applications/CrossOver.app/Contents/SharedSupport/CrossOver/bin/wine" --bottle "Heavy Gear 2" --check --wait-children "C:\\windows\\explorer.exe" "/desktop=HG2,640x480" "C:\\Program Files (x86)\\Activision\\Heavy Gear 2\\Heavy Gear 2.exe" "$@"

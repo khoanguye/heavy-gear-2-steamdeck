@@ -1,0 +1,89 @@
+SYSTEM
+{
+    BINDINGS "CTRL"                     CONTROL "Control"
+    BINDINGS "ALT"                      CONTROL "Alt"
+    BINDINGS "SHIFT"                    CONTROL "Shift"
+}
+
+MOVEMENT {
+    BINDINGS "Forward"                  CONTROL "W"      SENSITIVITY 0.5
+    BINDINGS "Backward"                 CONTROL "S"      SENSITIVITY 0.5
+    BINDINGS "Steer Left"               CONTROL "A"      SENSITIVITY 0.5
+    BINDINGS "Steer Right"              CONTROL "D"      SENSITIVITY 0.5
+    BINDINGS "Increase Throttle"        CONTROL "="      SENSITIVITY 0.5
+    BINDINGS "Decrease Throttle"        CONTROL "-"      SENSITIVITY 0.5
+    BINDINGS "Reverse Direction"        CONTROL "BackSpace"
+    BINDINGS "1/3 Throttle"             CONTROL "1"
+    BINDINGS "2/3 Throttle"             CONTROL "2"
+    BINDINGS "Full Throttle"            CONTROL "3"
+    BINDINGS "Full Stop"                CONTROL "X"
+    BINDINGS "Jump Jets"                CONTROL "Shift"
+    BINDINGS "Jump"                     CONTROL "space"
+    BINDINGS "Crouch"                   CONTROL "Control"
+    BINDINGS "Stand Up"                 CONTROL "Z"
+    BINDINGS "Wheels"                   CONTROL "V"
+    BINDINGS "Side Step Left"           CONTROL "Q"
+    BINDINGS "Side Step Right"          CONTROL "E"
+    BINDINGS "Center Torso"             CONTROL "C"
+}
+
+TARGETING_HUD {
+    BINDINGS "Weapon Fire"              CONTROL "Mouse Button 0"
+    BINDINGS "Weapon Cycle"             CONTROL "Mouse Button 1"
+    BINDINGS "Target ReticleX"          CONTROL "Mouse X-axis"  SENSITIVITY 0.5
+    BINDINGS "Target ReticleY"          CONTROL "Mouse Y-axis"  SENSITIVITY 0.5
+    BINDINGS "Change Weapon"            CONTROL "B"
+    BINDINGS "Pick Up Weapon"           CONTROL "/"
+    BINDINGS "Change Grenade"           CONTROL "G"
+    BINDINGS "Throw Grenade"            CONTROL "G"             LINK "Ctrl"
+    BINDINGS "Fire Artillery Strike"    CONTROL "J"
+    BINDINGS "Target Cycle"             CONTROL "T"
+    BINDINGS "Previous Target"          CONTROL "Y"
+    BINDINGS "Nearest Enemy"            CONTROL "R"
+    BINDINGS "Target Friendly"          CONTROL "F"
+    BINDINGS "Target At Reticle"        CONTROL "R"             LINK "Ctrl"
+    BINDINGS "Laser Targeting"          CONTROL "L"
+    BINDINGS "Radar Zoom"               CONTROL "Z"
+    BINDINGS "Active Radar Config"      CONTROL "K"
+    BINDINGS "Imaging System"           CONTROL "I"
+    BINDINGS "HUD Display ON-OFF"       CONTROL "H"             LINK "Ctrl"
+    BINDINGS "HUD Color"                CONTROL "H"             LINK "Alt"
+    BINDINGS "ECM Enable"               CONTROL "E"             LINK "Ctrl"
+}
+
+SQUAD_NETWORK {
+    BINDINGS "Tactical Map"             CONTROL "Tab"
+    BINDINGS "Stats Display Toggle"     CONTROL "F1"
+    BINDINGS "General Chat"             CONTROL "F2"
+    BINDINGS "Team Chat"                CONTROL "F3"
+    BINDINGS "User Taunt 1"             CONTROL "F5"
+    BINDINGS "User Taunt 2"             CONTROL "F6"
+    BINDINGS "User Taunt 3"             CONTROL "F7"
+    BINDINGS "User Taunt 4"             CONTROL "F8"
+    BINDINGS "User Taunt 5"             CONTROL "F9"
+    BINDINGS "User Taunt 6"             CONTROL "F10"
+    BINDINGS "User Taunt 7"             CONTROL "F11"
+    BINDINGS "User Taunt 8"             CONTROL "F12"
+    BINDINGS "Command Group"            CONTROL "5"
+    BINDINGS "Squad Fire At Will"       CONTROL "A"             LINK "Ctrl"
+    BINDINGS "Squad Regroup"            CONTROL "R"             LINK "Ctrl"
+    BINDINGS "Squad Hold Ground"        CONTROL "S"             LINK "Ctrl"
+    BINDINGS "Squad Defend My Target"   CONTROL "D"             LINK "Ctrl"
+    BINDINGS "Squad Attack My Target"   CONTROL "T"             LINK "Ctrl"
+    BINDINGS "Squad Goto Checkpoint"    CONTROL "G"             LINK "Ctrl"
+}
+
+MISCELLANEOUS {
+    BINDINGS "Goals"                    CONTROL "O"
+    BINDINGS "Select Nav Point"         CONTROL "N"
+    BINDINGS "Console Display Toggle"   CONTROL "`"
+    BINDINGS "Zoom In"                  CONTROL "Home"
+    BINDINGS "Zoom Out"                 CONTROL "End"
+    BINDINGS "External Tracking"        CONTROL "C"             LINK "Ctrl"
+    BINDINGS "Camera Left"              CONTROL "Left"
+    BINDINGS "Camera Right"             CONTROL "Right"
+    BINDINGS "Camera Up"                CONTROL "Up"
+    BINDINGS "Camera Down"              CONTROL "Down"
+    BINDINGS "Abort"                    CONTROL "Escape"
+    BINDINGS "Script Debug"             CONTROL "I"             LINK "Ctrl"
+}
